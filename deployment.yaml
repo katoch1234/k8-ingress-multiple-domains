@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+   name : wordpress
+   namespace: "game" 
+   labels:
+    environment: development
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      environment: development
+  template:
+    metadata:
+      labels:
+        environment: development
+    spec:
+     containers:
+       - image:  wordpress:latest
+         imagePullPolicy: Always
+         name:  wordpress
+         ports:
+         - containerPort: 80
+         env:
+         - name:  WORDPRESS_DB_USER
+           value:  admin
+         - name: WORDPRESS_DB_PASSWORD
+           value: HappyDay$2024
+         - name: WORDPRESS_DB_HOST
+           value: database-1.c7ikyis644u3.us-east-1.rds.amazonaws.com
+         - name: WORDPRESS_DB_NAME
+           value: wordpress
+
+
+
+          
+  
+  

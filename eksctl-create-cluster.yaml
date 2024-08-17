@@ -1,0 +1,19 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: k8-ingress
+  region: us-east-1
+  version: "1.30"
+
+iam:
+  serviceRoleARN: arn:aws:iam::339712707627:role/eksClusterRole
+
+nodeGroups:
+  - name: ng-default
+    instanceType: t2.medium
+    ssh:
+      publicKeyPath: ~/.ssh/id_ed25519.pub
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 1

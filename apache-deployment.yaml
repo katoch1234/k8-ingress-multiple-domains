@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+   name : apache
+   namespace: "game" 
+   labels:
+    environment: apache
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      environment: apache
+  template:
+    metadata:
+      labels:
+        environment: apache
+    spec:
+     containers:
+       - image:  httpd:2.4
+         imagePullPolicy: Always
+         name:  apache
+         ports:
+         - containerPort: 80
+
+
+
+          
+  
+  
