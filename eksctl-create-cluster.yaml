@@ -7,11 +7,11 @@ metadata:
   version: "1.30"
 
 iam:
-  serviceRoleARN: arn:aws:iam::339712707627:role/eksClusterRole
+  serviceRoleARN: arn:aws:iam::011528265029:role/eksClusterRole
 
 nodeGroups:
   - name: ng-default
-    instanceType: t2.medium
+    instanceType: t3.medium
     ssh:
       publicKeyPath: ~/.ssh/id_ed25519.pub
     desiredCapacity: 1

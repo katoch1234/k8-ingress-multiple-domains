@@ -15,13 +15,12 @@ spec:
       labels:
         environment: apache
     spec:
-     containers:
-       - image:  httpd:2.4
+      containers:
+       - image:  nginx:latest
          imagePullPolicy: Always
          name:  apache
          ports:
          - containerPort: 80
-
 
 
           

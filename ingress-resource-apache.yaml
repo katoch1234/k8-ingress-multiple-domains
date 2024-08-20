@@ -4,18 +4,19 @@ metadata:
   name: "apache-ingress"
   namespace: "game"
   annotations:
-    spec.ingressClassName: alb 
+    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
   labels:
-    environment: development
+    environment: apache
 spec:
   rules: 
     - http: 
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: "apache-port-service"
-                port: 
-                  number: 80
+        - backend:
+             service:
+              name: "apache-port-service"
+              port: 
+                number: 80
+          path: /*
+          pathType: ImplementationSpecific
+  

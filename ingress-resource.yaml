@@ -4,18 +4,32 @@ metadata:
   name: "game-ingress"
   namespace: "game"
   annotations:
-    spec.ingressClassName: alb 
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/target-type: ip
+    #spec.ingressClassName: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/success-codes: 200|302
   labels:
     environment: development
 spec:
-  rules: 
-    - http: 
+  rules:
+    - host: website1.com 
+      http: 
         paths:
           - path: /*
             pathType: ImplementationSpecific
             backend:
               service:
-                name: "node-port-service"
+                name: "wp-service"
+                port: 
+                  number: 80
+    - host: website2.com 
+      http: 
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: "apache-service"
                 port: 
                   number: 80

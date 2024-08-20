@@ -37,10 +37,11 @@ command to delete load-balancer-controller: helm delete aws-load-balancer-contro
 
 Step 12: Check logs kubectl logs alb-ingress-controller-7559759587-jxnsp -n kube-system
 Step 13: kubectl apply -f namespace.yaml 
-Step 14: kubectl apply -f node-port-service.yam, kubectl get all -n game
+Step 14: kubectl apply -f clusterip-wp-service.yaml, kubectl get all -n game
 
-Step 15: kubectl apply -f node-port-service.yaml
-Step 16: kubectl apply -f deployment.
+Step 15: kubectl apply -f service-apache.yaml
+Step 16: kubectl apply -f deployment.yaml
+         kubectl apply -f apache-deployment.yaml
 
 Step 17: kubectl apply -f ingress-resource.yaml
 

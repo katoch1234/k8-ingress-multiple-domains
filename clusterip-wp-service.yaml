@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: apache-service
-  namespace: "game"
+  name: wp-service
+  namespace: game
 spec:
   type: ClusterIP
   selector:
-    environment: apache
+    environment: development 
   ports:
   - port: 80
     targetPort: 80

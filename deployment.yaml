@@ -27,7 +27,7 @@ spec:
          - name: WORDPRESS_DB_PASSWORD
            value: HappyDay$2024
          - name: WORDPRESS_DB_HOST
-           value: database-1.c7ikyis644u3.us-east-1.rds.amazonaws.com
+           value: wordpress.cjgcesams7k4.us-east-1.rds.amazonaws.com
          - name: WORDPRESS_DB_NAME
            value: wordpress
 
